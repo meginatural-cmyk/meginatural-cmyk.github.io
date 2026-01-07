@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nefetc - Anasayfa</title>
+    <style>
+        /* FONT TANIMLAMA */
+        @font-face {
+            font-family: 'ShantellSans';
+            src: url('ShantellSans-Italic-VariableFont_BNCE,INFM,SPAC,wght.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        body {
+            font-family: 'ShantellSans', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* ÜST MENÜ (HEADER) */
+        header {
+            border-bottom: 4px solid black; /* Çizimindeki o siyah kalın hat */
+            padding: 15px 30px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .site-title {
+            font-size: 3.2rem;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        nav {
+            margin-left: 50px;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 2.2rem;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+        }
+
+        /* İÇERİK ALANI */
+        main {
+            padding: 40px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-top: 0;
+        }
+
+        #displayHomeText {
+            font-size: 1.6rem;
+            line-height: 1.4;
+            max-width: 800px;
+        }
+
+        /* MODLARIN GÖRÜNÜMÜ */
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .mod-item {
+            border: 3px solid black;
+            padding: 20px;
+            border-radius: 15px;
+            background: #fdfdfd;
+        }
+
+        .mod-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <h1 class="site-title">Nefetc</h1>
+            </div>
+            <nav>
+                <a href="#" onclick="showSection('home')">Anasayfa</a>
+                <a href="#" onclick="showSection('mods')">Modlar</a>
+                <a href="https://ormanvebitkiresimleri.my.canva.site/hakkimda" target="_blank">Hakkımda</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home-section">
+            <h2 id="displayHomeTitle">Yükleniyor...</h2>
+            <div id="displayHomeText">Yönetici panelinden içerik ekleyin.</div>
+        </section>
+
+        <section id="mods-section" style="display:none;">
+            <h2>Modlar</h2>
+            <div id="mods-list" class="mods-grid">
+                </div>
+        </section>
+    </main>
+
+    <script>
+        // Sayfa Değiştirme
+        function showSection(name) {
+            document.getElementById('home-section').style.display = (name === 'home' ? 'block' : 'none');
+            document.getElementById('mods-section').style.display = (name === 'mods' ? 'block' : 'none');
+        }
+
+        // Verileri Yükle
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem('nefetcData')) || {
+                homeTitle: "Hoş Geldiniz",
+                homeText: "Henüz bir açıklama yazılmamış.",
+                mods: []
+            };
+
+            document.getElementById('displayHomeTitle').innerText = data.homeTitle;
+            document.getElementById('displayHomeText').innerText = data.homeText;
+
+            const list = document.getElementById('mods-list');
+            list.innerHTML = data.mods.length ? '' : '<p>Henüz mod bulunmuyor.</p>';
+            
+            data.mods.forEach(mod => {
+                const item = document.createElement('div');
+                item.className = 'mod-item';
+                item.innerHTML = `<h3>${mod.title}</h3><p>${mod.desc}</p>`;
+                list.appendChild(item);
+            });
+        }
+
+        window.onload = loadData;
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body {
+    font-family: 'Arial Black', Gadget, sans-serif; /* Çizimdeki kalın yazı tipi için */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border-bottom: 5px solid black; /* Çizimindeki o belirgin kalın çizgi */
+    padding: 5px 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Logoyu ve başlığı sola yaslar */
+}
+
+.logo-img {
+    width: 80px; /* Boyutu isteğine göre ayarla */
+    height: auto;
+    margin-right: 20px;
+}
+
+.site-title {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #555; /* Üzerine gelince hafif renk değişimi */
+}
