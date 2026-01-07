@@ -1,0 +1,56 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Görseldeki yazı tipine yakın */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    border-bottom: 3px solid black;
+    padding: 10px 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+main {
+    padding: 40px;
+}
+
+.mods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.mod-item {
+    border: 2px solid #000;
+    padding: 15px;
+    border-radius: 10px;
+}
