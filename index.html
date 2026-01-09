@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nefetc Sosyal</title>
     <style>
+        .post-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .auth-box {
+            max-width: 350px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+        }
+        .auth-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
+            background: #fafafa;
+        }
+        
         :root { --nefetc-blue: #0095f6; --bg: #fafafa; --border: #dbdbdb; }
         body { font-family: -apple-system, sans-serif; background-color: var(--bg); margin: 0; }
         
@@ -169,4 +193,5 @@ const analytics = getAnalytics(app);
         window.closeModal = () => document.getElementById('post-modal').style.display = 'none';
     </script>
 </body>
+
 </html>
