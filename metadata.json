@@ -1,0 +1,5 @@
+{
+  "name": "Barkod Dedektifi",
+  "description": "Barkod numarasını girerek ürün detaylarını ve orijinal web sitesini anında bulun.",
+  "requestFramePermissions": []
+}
